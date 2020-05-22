@@ -31,7 +31,7 @@
 
     .panel {
       background: #6B0F9C;
-      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+      /*box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);*/
       color: white;
       text-align: center;
       align-items: center;
@@ -45,6 +45,7 @@
       background-size: cover;
       background-position: center;
       flex: 1;
+      justify-content: center;
       display: flex;
       flex-direction: column;
     }
@@ -119,7 +120,20 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel');
 
+    const toggleOpen = (event) => {
+      event.currentTarget.classList.toggle('open')
+    }
+
+    const toggleActive = (event) => {
+      if (event.propertyName.includes('flex')) {
+        event.target.classList.toggle('open-active')
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen))
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive))
   </script>
 
 
