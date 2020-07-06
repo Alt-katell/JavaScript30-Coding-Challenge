@@ -18,29 +18,59 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log(`My names is ${dogs[0].name}`);
+    console.log('My name is %s', dogs[1].name);
 
     // Styled
+    console.log('%c This is a blue text', 'color:blue');
 
-    // warning!
+    // warning
+    console.warn('This is a warning');
 
-    // Error :|
+    // Error
+    console.error('This is an error');
 
     // Info
+    console.info('This is an info');
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'This is wrong');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`${dog.name}`);
+      console.log(`${dog.age} years old`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
+    console.count('katell');
+    console.count('katell');
+    console.count('katell');
+    console.count('sylvain');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/Alt-katell')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
 
+    // table
+    console.table(dogs);
   </script>
 </body>
 </html>
