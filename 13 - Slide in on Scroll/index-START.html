@@ -62,9 +62,13 @@
 
     const checkSlide = (event) => {
       sliderImages.forEach(sliderImage => {
+        // tells when we are at the middle of the image
         const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
+        // bottom of the image
         const imageBottom = sliderImage.offsetTop + sliderImage.height;
+        // check that we are passed the top of the image
         const isHalfShown = slideInAt > sliderImage.offsetTop;
+        //bottom of the image is not greater than where we are on screen
         const isNotScrolledPast = window.scrollY < imageBottom;
 
         if (isHalfShown && isNotScrolledPast) {
