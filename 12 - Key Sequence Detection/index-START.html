@@ -7,6 +7,17 @@
 </head>
 <body>
 <script>
+  const secretCode = "hello";
+  let pressedLetters = [];
+
+  window.addEventListener('keyup', (event) => {
+    pressedLetters.push(event.key);
+    pressedLetters.splice(-secretCode.length -1, pressedLetters.length - secretCode.length);
+    if (pressedLetters.join('').includes(secretCode)) {
+      console.log('YOU WIN!');
+      cornify_add();
+    }
+  })
 </script>
 </body>
 </html>
