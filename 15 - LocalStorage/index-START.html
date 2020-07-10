@@ -30,6 +30,33 @@
   const itemsList = document.querySelector('.plates');
   const items = [];
 
+  const addItem = (event) => {
+    event.preventDefault();
+    const text = (event.target.querySelector('[name=item]')).value;
+    const plate = {
+      text,
+      done: false
+    };
+    items.push(plate);
+    populateList(items, itemsList);
+    localStorage.setItem('items', JSON.stringify(items));//items is the key in the localStorage API. We need to pass it a string containing our objects with stringify
+    event.target.reset();
+  }
+
+  const populateList = (items = [], itemsList) => {
+    itemsList.innerHTML = items.map((item, i) => {
+      return `
+      <li>
+        <input type="checkbox" data-index=${i} id="item${i}" ${item.done ? 'checked' : ''} />
+        <label for="item${i}">${item.text}</label>
+      </li>
+      `
+    }).join('')
+  }
+
+  addItems.addEventListener('submit', addItem);
+
+
 </script>
 
 
