@@ -45,7 +45,7 @@
       let {offsetX: x, offsetY: y} = event;
       console.log(event.target)
 
-      //this is the element for which the event is being handled (the current target), in that case hero
+      //this is the element for which the event is being handled (the current target), in that case hero. In the case of an arrow function, this and event.currentTarget are the same thing
       //event.target refers to the element which initiated the event, in that case hero or h1 depending on what is being hovered
       if (this !== event.target) {
         x = x + event.target.offsetLeft;
